@@ -12,10 +12,10 @@ from threading import Thread
 
 BASE_DIR = Path()
 BUFFER_SIZE = 1024
-HTTP_PORT = 8000
+HTTP_PORT = 3000
 HTTP_HOST = 'localhost'
 SOCKET_HOST = '127.0.0.1'
-SOCKET_PORT = 4000
+SOCKET_PORT = 5000
 jinja = Environment(loader=FileSystemLoader(BASE_DIR.joinpath('templates')))
 
 
@@ -77,9 +77,6 @@ def sava_data_from_form(data):
             final_dict[str(date)] = parce_dict
             logging.info(f'Data saved: {parce_dict}')
             json.dump(final_dict, f, ensure_ascii=False, indent=4)
-            # f.write(final_dict)
-            # f.write('\n')
-            # json.dump(parce_dict, f, ensure_ascii=False, indent=4)
     except ValueError as err:
         logging.error(err)
     except OSError as err:
